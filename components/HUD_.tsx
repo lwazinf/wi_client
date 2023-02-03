@@ -47,6 +47,7 @@ const HUD_ = ({}: HUD_Props) => {
           />
         </div>
         </a>
+        {/* @ts-ignore */}
         <a href={`tel:${select_?.tel}`} className={`w-full h-full`} target="_blank" rel="noopener noreferrer">
         <div
           className={`w-full h-full bg-green-500/20 cursor-pointer backdrop-blur-lg rounded-md flex flex-col justify-center items-center`}
