@@ -31,12 +31,130 @@ const Map_ = ({}: Map_Props) => {
           lng: 26.23,
         }}
         mapContainerClassName={`w-full h-full opacity-80 transition-all duration-200`}
-        options={{ disableDefaultUI: true }}
+        options={{
+          disableDefaultUI: true,
+          styles: [
+            {
+              elementType: 'geometry',
+              stylers: [
+                {
+                  color: '#242f3e',
+                },
+              ],
+            },
+            {
+              elementType: 'labels.text.fill',
+              stylers: [
+                {
+                  color: '#746855',
+                },
+              ],
+            },
+            {
+              elementType: 'labels.text.stroke',
+              stylers: [
+                {
+                  color: '#242f3e',
+                },
+              ],
+            },
+            {
+              featureType: 'administrative.locality',
+              elementType: 'labels.text.fill',
+              stylers: [
+                {
+                  color: '#d59563',
+                },
+              ],
+            },
+            {
+              featureType: 'poi',
+              elementType: 'labels.text.fill',
+              stylers: [
+                {
+                  color: '#d59563',
+                },
+              ],
+            },
+            {
+              featureType: 'poi.park',
+              elementType: 'geometry',
+              stylers: [
+                {
+                  color: '#263c3f',
+                },
+              ],
+            },
+            {
+              featureType: 'poi.park',
+              elementType: 'labels.text.fill',
+              stylers: [
+                {
+                  color: '#6b9a76',
+                },
+              ],
+            },
+            {
+              featureType: 'road',
+              elementType: 'geometry',
+              stylers: [
+                {
+                  color: '#38414e',
+                },
+              ],
+            },
+            {
+              featureType: 'road',
+              elementType: 'geometry.stroke',
+              stylers: [
+                {
+                  color: '#212a37',
+                },
+              ],
+            },
+            {
+              featureType: 'road',
+              elementType: 'labels.text.fill',
+              stylers: [
+                {
+                  color: '#9ca5b3',
+                },
+              ],
+            },
+            {
+              featureType: 'road.highway',
+              elementType: 'geometry',
+              stylers: [
+                {
+                  color: '#746855',
+                },
+              ],
+            },
+            {
+              featureType: 'road.highway',
+              elementType: 'geometry.stroke',
+              stylers: [
+                {
+                  color: '#1f2835',
+                },
+              ],
+            },
+            {
+              featureType: 'road.highway',
+              elementType: 'labels.text.fill',
+              stylers: [
+                {
+                  color: '#f3d19c',
+                },
+              ],
+            }
+          ]
+        }}
       >
         {data_?.map((obj) => {
           return (
             <Marker
-            // @ts-ignore
+              // @ts-ignore
               key={obj.uid}
               position={{
                 // @ts-ignore
@@ -45,7 +163,7 @@ const Map_ = ({}: Map_Props) => {
                 lng: obj?.location.lng,
               }}
               onClick={() => {
-                setSelect_(obj)
+                setSelect_(obj);
               }}
             />
           );
