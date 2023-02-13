@@ -9,3 +9,8 @@ export const LocState = atom({
     key: 'SelectState',
     default: {},
   })
+
+  export const LocationState = atom({
+    key: 'LocationState',
+    default: [],
+  })

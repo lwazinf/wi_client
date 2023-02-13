@@ -2,20 +2,26 @@ import { GoogleMap, Marker } from "@react-google-maps/api";
 import { useEffect, useState } from "react";
 import { db, getLocations } from "../firebase";
 import { useRecoilState } from "recoil";
-import { SelectState } from "./atoms/atoms";
+import { SelectState, LocationState } from "./atoms/atoms";
 
 interface Map_Props {}
 
 const Map_ = ({}: Map_Props) => {
   const [data_, setData_] = useState([]);
+  const [locations_, setLocations_] = useRecoilState(LocationState);
   const [select_, setSelect_] = useRecoilState(SelectState);
   useEffect(() => {
     const y_ = async () => {
       const x_ = await getLocations();
       // @ts-ignore
       setData_(x_);
+      return x_
     };
-    y_();
+    y_().then((e) =>
+      {
+      setData_(e)
+      console.log(data_)
+    });
   }, []);
 
   return (
